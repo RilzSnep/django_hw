@@ -5,50 +5,48 @@ from django.core.validators import MaxValueValidator
 class Product(models.Model):
     name = models.CharField(
         max_length=100,
-        verbose_name="Название продукта",  # product name for admin panel
-        help_text="Введите название продукта",  # text for help in admin panel
+        verbose_name="Название продукта",
+        help_text="Введите название продукта",
     )
     description = models.TextField(
-        verbose_name="Описание продукта",  # product description for admin panel
-        help_text="Введите описание продукта",  # text for help in admin panel
+        verbose_name="Описание продукта",
+        help_text="Введите описание продукта",
     )
     image = models.ImageField(
-        upload_to="catalog/image",  # directory for images
+        upload_to="catalog/image",  # Папка для хранения изображений
         blank=True,
-        null=True,  # check on null values
-        verbose_name="Фото продукта",  # product photo for admin panel
-        help_text="Загрзите фото продукта",  # text for help in admin panel
+        null=True,
+        verbose_name="Фото продукта",
+        help_text="Загрузите фото продукта",
     )
     category = models.CharField(
         max_length=100,
-        verbose_name="Категория",  # product category for admin panel
-        help_text="Введите категорию",  # text for help in admin panel
+        verbose_name="Категория",
+        help_text="Введите категорию",
     )
     price = models.IntegerField(
-        default=0,  # default price value
-        validators=[MaxValueValidator(10000)],  # Restricts the price to a maximum of 10000
-        verbose_name="Цена за продукт",  # Display name for admin panel
+        default=0,
+        validators=[MaxValueValidator(10000)],
+        verbose_name="Цена за продукт",
     )
     created_at = models.DateField(
-        blank=True,  # Field is optional
-        null=True,  # Allows storing null values
-        verbose_name="Дата создания",  # Display name for admin panel
-        help_text="Введите дату создания",  # text for help in admin panel
+        blank=True,
+        null=True,
+        verbose_name="Дата создания",
+        help_text="Введите дату создания",
     )
     updated_at = models.DateField(
-        blank=True,  # Field is optional
-        null=True,  # Allows storing null values
-        verbose_name="дата последнего изменения",  # Display name for admin panel
-        help_text="Введите дату последнего изменения",  # text for help in admin panel
+        blank=True,
+        null=True,
+        verbose_name="Дата последнего изменения",
+        help_text="Введите дату последнего изменения",
     )
 
-    # Meta information for the Product model
     class Meta:
-        verbose_name = "Продукт"  # Singular name for admin panel
-        verbose_name_plural = "Продукты"  # Plural name for admin panel
-        ordering = ["name", "category"]  # Default ordering by name and category
+        verbose_name = "Продукт"
+        verbose_name_plural = "Продукты"
+        ordering = ["name", "category"]
 
-    # String representation of the Product object
     def __str__(self):
         return self.name
 
