@@ -8,13 +8,13 @@ FORBIDDEN_WORDS = [
 ]
 
 
-class ProductForm(forms.ModelForm):
+class ProductForms(forms.ModelForm):
     class Meta:
         model = Product
         fields = ['name', 'description', 'image', 'category', 'price']
 
     def __init__(self, *args, **kwargs):
-        super(ProductForm, self).__init__(*args, **kwargs)
+        super(ProductForms, self).__init__(*args, **kwargs)
         # Применение классов к каждому полю формы
         for field in self.fields.values():
             field.widget.attrs['class'] = 'form-control'

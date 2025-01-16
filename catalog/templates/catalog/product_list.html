@@ -20,7 +20,7 @@
               <h5 class="card-title">{{ product.name }}</h5>
               <p class="card-text">{{ product.description|truncatewords:20 }}</p>
               <a href="{% url 'catalog:product_detail' product.pk %}" class="btn btn-info">Перейти</a>
-              <a href="{% url 'catalog:product_detail' product.pk %}" class="btn btn-info">Редактировать</a>
+              <a href="{% url 'catalog:product_update' product.pk %}" class="btn btn-info">Редактировать</a>
               <a href="{% url 'catalog:product_delete' product.pk %}" class="btn btn-danger">Удалить</a>
             </div>
           </div>

@@ -1,7 +1,7 @@
 # views.py
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
-from catalog.froms import ProductForm
+from catalog.forms import ProductForms  # Исправлена ошибка в импорте
 from catalog.models import Product
 
 
@@ -16,7 +16,6 @@ class ContactTemplateView(TemplateView):
 
 
 # Просмотр списка продуктов
-# Список продуктов
 class ProductListView(ListView):
     model = Product
     template_name = 'catalog/product_list.html'
@@ -31,14 +30,15 @@ class ProductDetailView(DetailView):
 # Создание нового продукта
 class ProductCreateView(CreateView):
     model = Product
-    form_class = ProductForm
+    form_class = ProductForms
     template_name = 'catalog/product_form.html'
     success_url = reverse_lazy('catalog:product_list')
 
 
+# Обновление продукта
 class ProductUpdateView(UpdateView):
     model = Product
-    form_class = ProductForm
+    form_class = ProductForms
     template_name = 'catalog/product_form.html'
 
     def get_success_url(self):

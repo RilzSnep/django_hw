@@ -7,6 +7,6 @@
   <p>{{ object.description }}</p>
   <p>Цена: {{ object.price }}</p>
   <p>Категория: {{ object.category }}</p>
-  <a href="{% url 'catalog:product_detail' product.pk %}" class="btn btn-info">Редактировать</a>
+  <a href="{% url 'catalog:product_update' product.pk %}" class="btn btn-info">Редактировать</a>
   <a href="{% url 'catalog:product_delete' object.pk %}" class="btn btn-danger">Удалить</a>
 {% endblock %}
