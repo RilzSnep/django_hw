@@ -155,6 +155,7 @@ cmake-build-*/
 # File-based project format
 *.iws
 .idea/
+.idea
 out/
 # IntelliJ
 
